@@ -139,11 +139,20 @@ function PlasmicHomepage__RenderFunc(props) {
               className={classNames(projectcss.all, sty.main)}
             >
               <div className={classNames(projectcss.all, sty.freeBox__pbyBh)}>
-                <CameraSolidSvgIcon
-                  className={classNames(projectcss.all, sty.svg__bEzn)}
-                  role={"img"}
-                />
-
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    sty.link__dju1X
+                  )}
+                  component={Link}
+                  platform={"nextjs"}
+                >
+                  <CameraSolidSvgIcon
+                    className={classNames(projectcss.all, sty.svg__bEzn)}
+                    role={"img"}
+                  />
+                </PlasmicLink__>
                 <Fetcher
                   data-plasmic-name={"dataFetcher5"}
                   data-plasmic-override={overrides.dataFetcher5}
@@ -187,10 +196,20 @@ function PlasmicHomepage__RenderFunc(props) {
                     />
                   )}
                 </Fetcher>
-                <MagnifyingGlassSolidSvgIcon
-                  className={classNames(projectcss.all, sty.svg__fXW)}
-                  role={"img"}
-                />
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    sty.link___7Xygp
+                  )}
+                  component={Link}
+                  platform={"nextjs"}
+                >
+                  <MagnifyingGlassSolidSvgIcon
+                    className={classNames(projectcss.all, sty.svg__fXW)}
+                    role={"img"}
+                  />
+                </PlasmicLink__>
               </div>
               <section
                 className={classNames(projectcss.all, sty.section__js8ZG)}
