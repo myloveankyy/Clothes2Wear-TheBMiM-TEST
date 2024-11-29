@@ -11,6 +11,7 @@
   "dependencies": {
     "@plasmicapp/cli": "^0.1.334",
     "@plasmicapp/react-web": "^0.2.355",
+    "@plasmicpkgs/antd5": "^0.0.255",
     "@plasmicpkgs/radix-ui": "^0.0.64",
     "@plasmicpkgs/react-slick": "^0.0.228",
     "next": "14.2.18",

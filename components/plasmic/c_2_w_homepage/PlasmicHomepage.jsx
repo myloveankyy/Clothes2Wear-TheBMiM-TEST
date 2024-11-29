@@ -31,6 +31,7 @@ import Button from "../../Button"; // plasmic-import: AKPym4eRpe9r/component
 import Drawer2 from "../../Drawer2"; // plasmic-import: JXMqttZtFxxW/component
 import { useScreenVariants as useScreenVariantsjnMzM2S33Dx } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JnMzM2_S33Dx/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 8ozBW4uAVqTFB3X2H9YHuB/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: YXVm4dGfJVV4/css
 import CameraSolidSvgIcon from "./icons/PlasmicIcon__CameraSolidSvg"; // plasmic-import: 2DRO3PAh9L7F/icon
@@ -122,6 +123,7 @@ function PlasmicHomepage__RenderFunc(props) {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
+            plasmic_antd_5_hostless_css.plasmic_tokens,
             sty.homePage
           )}
         >
@@ -130,12 +132,14 @@ function PlasmicHomepage__RenderFunc(props) {
             data-plasmic-override={overrides.headerSection}
             className={classNames(projectcss.all, sty.headerSection)}
           >
-            <section
-              data-plasmic-name={"section"}
-              data-plasmic-override={overrides.section}
-              className={classNames(projectcss.all, sty.section)}
+            <main
+              data-plasmic-name={"main"}
+              data-plasmic-override={overrides.main}
+              className={classNames(projectcss.all, sty.main)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__pbyBh)}>
+              <section
+                className={classNames(projectcss.all, sty.section__pbyBh)}
+              >
                 <CameraSolidSvgIcon
                   className={classNames(projectcss.all, sty.svg__bEzn)}
                   role={"img"}
@@ -200,8 +204,10 @@ function PlasmicHomepage__RenderFunc(props) {
                   className={classNames(projectcss.all, sty.svg__fXW)}
                   role={"img"}
                 />
-              </div>
-              <div className={classNames(projectcss.all, sty.freeBox__js8ZG)}>
+              </section>
+              <section
+                className={classNames(projectcss.all, sty.section__js8ZG)}
+              >
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__vwfFd)}
@@ -219,7 +225,7 @@ function PlasmicHomepage__RenderFunc(props) {
                     aspectRatio: undefined
                   }}
                 />
-              </div>
+              </section>
               <section
                 data-plasmic-name={"buttonSections"}
                 data-plasmic-override={overrides.buttonSections}
@@ -348,8 +354,8 @@ function PlasmicHomepage__RenderFunc(props) {
                   </div>
                 </PlasmicLink__>
               </section>
-            </section>
-            <div className={classNames(projectcss.all, sty.freeBox__nLAeP)}>
+            </main>
+            <section className={classNames(projectcss.all, sty.section__nLAeP)}>
               <Stack__
                 as={"div"}
                 data-plasmic-name={"categoryStack"}
@@ -436,7 +442,7 @@ function PlasmicHomepage__RenderFunc(props) {
                   }
                 </Fetcher>
               </Stack__>
-            </div>
+            </section>
             <div className={classNames(projectcss.all, sty.freeBox__hECm)}>
               <Button
                 data-plasmic-name={"button"}
@@ -586,7 +592,7 @@ const PlasmicDescendants = {
   homePage: [
     "homePage",
     "headerSection",
-    "section",
+    "main",
     "dataFetcher5",
     "searchTextbox",
     "buttonSections",
@@ -602,7 +608,7 @@ const PlasmicDescendants = {
 
   headerSection: [
     "headerSection",
-    "section",
+    "main",
     "dataFetcher5",
     "searchTextbox",
     "buttonSections",
@@ -616,8 +622,8 @@ const PlasmicDescendants = {
     "dataFetcher3"
   ],
 
-  section: [
-    "section",
+  main: [
+    "main",
     "dataFetcher5",
     "searchTextbox",
     "buttonSections",
@@ -670,7 +676,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     headerSection: makeNodeComponent("headerSection"),
-    section: makeNodeComponent("section"),
+    main: makeNodeComponent("main"),
     dataFetcher5: makeNodeComponent("dataFetcher5"),
     searchTextbox: makeNodeComponent("searchTextbox"),
     buttonSections: makeNodeComponent("buttonSections"),

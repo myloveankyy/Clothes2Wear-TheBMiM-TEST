@@ -30,6 +30,7 @@ import { DialogTitle } from "@plasmicpkgs/radix-ui";
 import { DialogClose } from "@plasmicpkgs/radix-ui";
 import { useScreenVariants as useScreenVariantsjnMzM2S33Dx } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JnMzM2_S33Dx/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
+import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
 import projectcss from "./plasmic.module.css"; // plasmic-import: 8ozBW4uAVqTFB3X2H9YHuB/projectcss
 import sty from "./PlasmicDrawer2.module.css"; // plasmic-import: JXMqttZtFxxW/css
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: 2KC2rHpS0QCH/icon
@@ -117,6 +118,7 @@ function PlasmicDrawer2__RenderFunc(props) {
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
         projectcss.plasmic_tokens,
+        plasmic_antd_5_hostless_css.plasmic_tokens,
         sty.dialog,
         { [sty.dialognoTrigger]: hasVariant($state, "noTrigger", "noTrigger") }
       )}
@@ -131,7 +133,8 @@ function PlasmicDrawer2__RenderFunc(props) {
         projectcss.root_reset,
         projectcss.plasmic_default_styles,
         projectcss.plasmic_mixins,
-        projectcss.plasmic_tokens
+        projectcss.plasmic_tokens,
+        plasmic_antd_5_hostless_css.plasmic_tokens
       )}
       triggerSlot={
         (hasVariant($state, "noTrigger", "noTrigger") ? false : true)
@@ -182,7 +185,8 @@ function PlasmicDrawer2__RenderFunc(props) {
           projectcss.root_reset,
           projectcss.plasmic_default_styles,
           projectcss.plasmic_mixins,
-          projectcss.plasmic_tokens
+          projectcss.plasmic_tokens,
+          plasmic_antd_5_hostless_css.plasmic_tokens
         )}
       >
         <Stack__
