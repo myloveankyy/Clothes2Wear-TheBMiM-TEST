@@ -97,14 +97,18 @@
   margin-left: 16px;
   height: 1em;
 }
+.dataFetcher5:global(.__wab_instance) {
+  max-width: 100%;
+  object-fit: cover;
+}
 .searchTextbox {
   position: relative;
   width: 100%;
   background: #ffffff00;
   max-width: 326px;
+  padding-left: 14px;
   min-width: 0;
-  border-style: solid;
-  border-color: #fffdfd00;
+  border: 1px none #fffdfd00;
 }
 .svg__fXW {
   object-fit: cover;

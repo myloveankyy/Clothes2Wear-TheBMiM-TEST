@@ -93,6 +93,12 @@ function PlasmicHomepage__RenderFunc(props) {
         initFunc: ({ $props, $state, $queries, $ctx }) => 0,
         refName: "sliderCarousel",
         onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
+      },
+      {
+        path: "searchTextbox.value",
+        type: "private",
+        variableType: "text",
+        initFunc: ({ $props, $state, $queries, $ctx }) => undefined
       }
     ],
 
@@ -148,33 +154,61 @@ function PlasmicHomepage__RenderFunc(props) {
                   role={"img"}
                 />
 
-                <input
-                  data-plasmic-name={"searchTextbox"}
-                  data-plasmic-override={overrides.searchTextbox}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.input,
-                    sty.searchTextbox
-                  )}
-                  placeholder={(() => {
-                    try {
-                      return undefined;
-                    } catch (e) {
-                      if (
-                        e instanceof TypeError ||
-                        e?.plasmicType === "PlasmicUndefinedDataError"
-                      ) {
-                        return undefined;
-                      }
-                      throw e;
-                    }
-                  })()}
-                  ref={ref => {
-                    $refs["searchTextbox"] = ref;
+                <Fetcher
+                  data-plasmic-name={"dataFetcher5"}
+                  data-plasmic-override={overrides.dataFetcher5}
+                  className={classNames("__wab_instance", sty.dataFetcher5)}
+                  dataOp={{
+                    sourceId: "cbwfjoUNWks1Vu8onJKXx8",
+                    opId: "84f60dfa-f162-41fd-9e42-9605189b237d",
+                    userArgs: {},
+                    cacheKey: `plasmic.$.lD4bcVrXLTop.$.84f60dfa-f162-41fd-9e42-9605189b237d.$.`,
+                    invalidatedKeys: null,
+                    roleId: null
                   }}
-                  type={"text"}
-                />
-
+                  queries={{}}
+                >
+                  {$queries => (
+                    <input
+                      data-plasmic-name={"searchTextbox"}
+                      data-plasmic-override={overrides.searchTextbox}
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.input,
+                        sty.searchTextbox
+                      )}
+                      onChange={e => {
+                        generateStateOnChangeProp($state, [
+                          "searchTextbox",
+                          "value"
+                        ])(e.target.value);
+                      }}
+                      placeholder={(() => {
+                        try {
+                          return $queries.data.data.response[0].text;
+                        } catch (e) {
+                          if (
+                            e instanceof TypeError ||
+                            e?.plasmicType === "PlasmicUndefinedDataError"
+                          ) {
+                            return undefined;
+                          }
+                          throw e;
+                        }
+                      })()}
+                      ref={ref => {
+                        $refs["searchTextbox"] = ref;
+                      }}
+                      type={"text"}
+                      value={
+                        generateStateValueProp($state, [
+                          "searchTextbox",
+                          "value"
+                        ]) ?? ""
+                      }
+                    />
+                  )}
+                </Fetcher>
                 <MagnifyingGlassSolidSvgIcon
                   className={classNames(projectcss.all, sty.svg__fXW)}
                   role={"img"}
@@ -728,6 +762,7 @@ const PlasmicDescendants = {
     "homePage",
     "headerSection",
     "header",
+    "dataFetcher5",
     "searchTextbox",
     "buttonSections",
     "dataFetcher2",
@@ -747,6 +782,7 @@ const PlasmicDescendants = {
   headerSection: [
     "headerSection",
     "header",
+    "dataFetcher5",
     "searchTextbox",
     "buttonSections",
     "dataFetcher2",
@@ -758,7 +794,15 @@ const PlasmicDescendants = {
     "dataFetcher3"
   ],
 
-  header: ["header", "searchTextbox", "buttonSections", "dataFetcher2"],
+  header: [
+    "header",
+    "dataFetcher5",
+    "searchTextbox",
+    "buttonSections",
+    "dataFetcher2"
+  ],
+
+  dataFetcher5: ["dataFetcher5", "searchTextbox"],
   searchTextbox: ["searchTextbox"],
   buttonSections: ["buttonSections", "dataFetcher2"],
   dataFetcher2: ["dataFetcher2"],
@@ -816,6 +860,7 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     headerSection: makeNodeComponent("headerSection"),
     header: makeNodeComponent("header"),
+    dataFetcher5: makeNodeComponent("dataFetcher5"),
     searchTextbox: makeNodeComponent("searchTextbox"),
     buttonSections: makeNodeComponent("buttonSections"),
     dataFetcher2: makeNodeComponent("dataFetcher2"),
