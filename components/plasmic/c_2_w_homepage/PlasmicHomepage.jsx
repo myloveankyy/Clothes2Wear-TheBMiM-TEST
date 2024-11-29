@@ -134,22 +134,33 @@ function PlasmicHomepage__RenderFunc(props) {
                   role={"img"}
                 />
 
-                <div className={classNames(projectcss.all, sty.freeBox__tgn03)}>
-                  <input
-                    data-plasmic-name={"textInput"}
-                    data-plasmic-override={
-                      overrides.textInput ?? overrides.textbox
+                <input
+                  data-plasmic-name={"searchTextbox"}
+                  data-plasmic-override={overrides.searchTextbox}
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.input,
+                    sty.searchTextbox
+                  )}
+                  placeholder={(() => {
+                    try {
+                      return undefined;
+                    } catch (e) {
+                      if (
+                        e instanceof TypeError ||
+                        e?.plasmicType === "PlasmicUndefinedDataError"
+                      ) {
+                        return undefined;
+                      }
+                      throw e;
                     }
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.input,
-                      sty.textInput
-                    )}
-                    placeholder={"Search anything..."}
-                    type={"text"}
-                    value={``}
-                  />
-                </div>
+                  })()}
+                  ref={ref => {
+                    $refs["searchTextbox"] = ref;
+                  }}
+                  type={"text"}
+                />
+
                 <MagnifyingGlassSolidSvgIcon
                   className={classNames(projectcss.all, sty.svg__fXW)}
                   role={"img"}
@@ -183,6 +194,14 @@ function PlasmicHomepage__RenderFunc(props) {
                   data-plasmic-name={"dataFetcher2"}
                   data-plasmic-override={overrides.dataFetcher2}
                   className={classNames("__wab_instance", sty.dataFetcher2)}
+                  dataOp={{
+                    sourceId: "wJJYKRKmy66qLjpwedisBb",
+                    opId: "36380aa0-8960-4d31-80ef-b1ff0c4cbd70",
+                    userArgs: {},
+                    cacheKey: `plasmic.$.Ac9SNEo-hsSl.$.36380aa0-8960-4d31-80ef-b1ff0c4cbd70.$.`,
+                    invalidatedKeys: null,
+                    roleId: null
+                  }}
                   queries={{}}
                 >
                   {$queries =>
@@ -292,102 +311,62 @@ function PlasmicHomepage__RenderFunc(props) {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.categoryStack)}
               >
-                {(
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? true
-                    : false
-                ) ? (
-                  <CategoryBtns
-                    className={classNames(
-                      "__wab_instance",
-                      sty.categoryBtns__yybbB
-                    )}
-                  />
-                ) : null}
-                {(
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? true
-                    : false
-                ) ? (
-                  <CategoryBtns
-                    className={classNames(
-                      "__wab_instance",
-                      sty.categoryBtns__eQdnd
-                    )}
-                  />
-                ) : null}
-                {(
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? true
-                    : false
-                ) ? (
-                  <CategoryBtns
-                    className={classNames(
-                      "__wab_instance",
-                      sty.categoryBtns__rvuwn
-                    )}
-                  />
-                ) : null}
-                {(
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? true
-                    : false
-                ) ? (
-                  <CategoryBtns
-                    className={classNames(
-                      "__wab_instance",
-                      sty.categoryBtns__lcsEc
-                    )}
-                  />
-                ) : null}
-                {(
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? true
-                    : false
-                ) ? (
-                  <CategoryBtns
-                    className={classNames(
-                      "__wab_instance",
-                      sty.categoryBtns__rEq8W
-                    )}
-                  />
-                ) : null}
-                {(
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? true
-                    : false
-                ) ? (
-                  <CategoryBtns
-                    className={classNames(
-                      "__wab_instance",
-                      sty.categoryBtns__iP4Q6
-                    )}
-                  />
-                ) : null}
-                {(
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? true
-                    : false
-                ) ? (
-                  <CategoryBtns
-                    className={classNames(
-                      "__wab_instance",
-                      sty.categoryBtns__imMeF
-                    )}
-                  />
-                ) : null}
-                {(
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? true
-                    : false
-                ) ? (
-                  <CategoryBtns
-                    className={classNames(
-                      "__wab_instance",
-                      sty.categoryBtns__h3Ns
-                    )}
-                  />
-                ) : null}
+                <CategoryBtns
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryBtns__yybbB
+                  )}
+                />
+
+                <CategoryBtns
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryBtns__eQdnd
+                  )}
+                />
+
+                <CategoryBtns
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryBtns__rvuwn
+                  )}
+                />
+
+                <CategoryBtns
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryBtns__lcsEc
+                  )}
+                />
+
+                <CategoryBtns
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryBtns__rEq8W
+                  )}
+                />
+
+                <CategoryBtns
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryBtns__iP4Q6
+                  )}
+                />
+
+                <CategoryBtns
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryBtns__imMeF
+                  )}
+                />
+
+                <CategoryBtns
+                  className={classNames(
+                    "__wab_instance",
+                    sty.categoryBtns__h3Ns
+                  )}
+                />
+
                 <Fetcher
                   data-plasmic-name={"dataFetcher"}
                   data-plasmic-override={overrides.dataFetcher}
@@ -458,61 +437,55 @@ function PlasmicHomepage__RenderFunc(props) {
               </Stack__>
             </div>
             <div className={classNames(projectcss.all, sty.freeBox__hECm)}>
-              {(
-                hasVariant(globalVariants, "screen", "mobileOnly")
-                  ? true
-                  : false
-              ) ? (
-                <Button
-                  data-plasmic-name={"button"}
-                  data-plasmic-override={overrides.button}
-                  className={classNames("__wab_instance", sty.button)}
-                  color={
-                    hasVariant(globalVariants, "screen", "mobileOnly")
-                      ? "clear"
-                      : undefined
+              <Button
+                data-plasmic-name={"button"}
+                data-plasmic-override={overrides.button}
+                className={classNames("__wab_instance", sty.button)}
+                color={
+                  hasVariant(globalVariants, "screen", "mobileOnly")
+                    ? "clear"
+                    : undefined
+                }
+              >
+                <Drawer2
+                  data-plasmic-name={"drawer2"}
+                  data-plasmic-override={overrides.drawer2}
+                  className={classNames("__wab_instance", sty.drawer2)}
+                  onOpenChange={generateStateOnChangeProp($state, [
+                    "drawer2",
+                    "open"
+                  ])}
+                  open={generateStateValueProp($state, ["drawer2", "open"])}
+                  trigger={
+                    <React.Fragment>
+                      <BarsSolidSvgIcon
+                        className={classNames(projectcss.all, sty.svg___1FWi)}
+                        role={"img"}
+                      />
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__trUd2
+                        )}
+                      >
+                        {"Show dialog"}
+                      </div>
+                    </React.Fragment>
                   }
                 >
-                  <Drawer2
-                    data-plasmic-name={"drawer2"}
-                    data-plasmic-override={overrides.drawer2}
-                    className={classNames("__wab_instance", sty.drawer2)}
-                    onOpenChange={generateStateOnChangeProp($state, [
-                      "drawer2",
-                      "open"
-                    ])}
-                    open={generateStateValueProp($state, ["drawer2", "open"])}
-                    trigger={
-                      <React.Fragment>
-                        <BarsSolidSvgIcon
-                          className={classNames(projectcss.all, sty.svg___1FWi)}
-                          role={"img"}
-                        />
-
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
-                            sty.text__trUd2
-                          )}
-                        >
-                          {"Show dialog"}
-                        </div>
-                      </React.Fragment>
-                    }
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__seJdx
+                    )}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__seJdx
-                      )}
-                    >
-                      {"CLOTHES2WEAR"}
-                    </div>
-                  </Drawer2>
-                </Button>
-              ) : null}
+                    {"CLOTHES2WEAR"}
+                  </div>
+                </Drawer2>
+              </Button>
               <PlasmicImg__
                 alt={""}
                 className={classNames(sty.img__j56Mu)}
@@ -540,6 +513,14 @@ function PlasmicHomepage__RenderFunc(props) {
                   data-plasmic-name={"dataFetcher3"}
                   data-plasmic-override={overrides.dataFetcher3}
                   className={classNames("__wab_instance", sty.dataFetcher3)}
+                  dataOp={{
+                    sourceId: "cbwfjoUNWks1Vu8onJKXx8",
+                    opId: "84f60dfa-f162-41fd-9e42-9605189b237d",
+                    userArgs: {},
+                    cacheKey: `plasmic.$.F4R7CCus8aTT.$.84f60dfa-f162-41fd-9e42-9605189b237d.$.`,
+                    invalidatedKeys: null,
+                    roleId: null
+                  }}
                   queries={{}}
                 >
                   {$queries =>
@@ -605,8 +586,7 @@ const PlasmicDescendants = {
     "homePage",
     "headerSection",
     "header",
-    "textInput",
-    "textbox",
+    "searchTextbox",
     "buttonSections",
     "dataFetcher2",
     "categoryStack",
@@ -621,8 +601,7 @@ const PlasmicDescendants = {
   headerSection: [
     "headerSection",
     "header",
-    "textInput",
-    "textbox",
+    "searchTextbox",
     "buttonSections",
     "dataFetcher2",
     "categoryStack",
@@ -634,8 +613,8 @@ const PlasmicDescendants = {
     "dataFetcher3"
   ],
 
-  header: ["header", "textInput", "textbox", "buttonSections", "dataFetcher2"],
-  textInput: ["textInput", "textbox"],
+  header: ["header", "searchTextbox", "buttonSections", "dataFetcher2"],
+  searchTextbox: ["searchTextbox"],
   buttonSections: ["buttonSections", "dataFetcher2"],
   dataFetcher2: ["dataFetcher2"],
   categoryStack: ["categoryStack", "dataFetcher", "categoryBtn", "h1"],
@@ -681,7 +660,7 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     headerSection: makeNodeComponent("headerSection"),
     header: makeNodeComponent("header"),
-    textInput: makeNodeComponent("textInput"),
+    searchTextbox: makeNodeComponent("searchTextbox"),
     buttonSections: makeNodeComponent("buttonSections"),
     dataFetcher2: makeNodeComponent("dataFetcher2"),
     categoryStack: makeNodeComponent("categoryStack"),
