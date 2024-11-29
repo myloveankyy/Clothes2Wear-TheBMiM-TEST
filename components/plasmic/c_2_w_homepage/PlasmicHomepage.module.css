@@ -582,6 +582,11 @@
   > img {
   margin-left: 14px;
 }
+@media (min-width: 0px) and (max-width: 768px) {
+  .freeBox___7XupN {
+    display: none;
+  }
+}
 .dataFetcher3:global(.__wab_instance) {
   max-width: 100%;
   object-fit: cover;
