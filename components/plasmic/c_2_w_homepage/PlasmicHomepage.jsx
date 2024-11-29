@@ -137,9 +137,7 @@ function PlasmicHomepage__RenderFunc(props) {
               data-plasmic-override={overrides.main}
               className={classNames(projectcss.all, sty.main)}
             >
-              <section
-                className={classNames(projectcss.all, sty.section__pbyBh)}
-              >
+              <div className={classNames(projectcss.all, sty.freeBox__pbyBh)}>
                 <CameraSolidSvgIcon
                   className={classNames(projectcss.all, sty.svg__bEzn)}
                   role={"img"}
@@ -174,19 +172,7 @@ function PlasmicHomepage__RenderFunc(props) {
                           "value"
                         ])(e.target.value);
                       }}
-                      placeholder={(() => {
-                        try {
-                          return $queries.data.data.response[0].text;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return undefined;
-                          }
-                          throw e;
-                        }
-                      })()}
+                      placeholder={"Search anything here..."}
                       ref={ref => {
                         $refs["searchTextbox"] = ref;
                       }}
@@ -204,7 +190,7 @@ function PlasmicHomepage__RenderFunc(props) {
                   className={classNames(projectcss.all, sty.svg__fXW)}
                   role={"img"}
                 />
-              </section>
+              </div>
               <section
                 className={classNames(projectcss.all, sty.section__js8ZG)}
               >
