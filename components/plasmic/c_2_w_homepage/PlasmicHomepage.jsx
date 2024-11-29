@@ -10,9 +10,11 @@
 // Component: YXVm4dGfJVV4
 import * as React from "react";
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import {
   PlasmicImg as PlasmicImg__,
+  PlasmicLink as PlasmicLink__,
   Stack as Stack__,
   classNames,
   createPlasmicElementProxy,
@@ -25,7 +27,6 @@ import {
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
-import CategoryBtns from "../../CategoryBtns"; // plasmic-import: pPq4CajPrBm0/component
 import Button from "../../Button"; // plasmic-import: AKPym4eRpe9r/component
 import Drawer2 from "../../Drawer2"; // plasmic-import: JXMqttZtFxxW/component
 import { useScreenVariants as useScreenVariantsjnMzM2S33Dx } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JnMzM2_S33Dx/globalVariant
@@ -224,12 +225,15 @@ function PlasmicHomepage__RenderFunc(props) {
                       const currentItem = __plasmic_item_0;
                       const currentIndex = __plasmic_idx_0;
                       return (
-                        <div
+                        <PlasmicLink__
                           className={classNames(
                             projectcss.all,
-                            sty.freeBox___5BiL
+                            projectcss.a,
+                            sty.link___5BiL
                           )}
+                          component={Link}
                           key={currentIndex}
+                          platform={"nextjs"}
                         >
                           <PlasmicImg__
                             alt={""}
@@ -280,12 +284,20 @@ function PlasmicHomepage__RenderFunc(props) {
                               })()}
                             </React.Fragment>
                           </div>
-                        </div>
+                        </PlasmicLink__>
                       );
                     })
                   }
                 </Fetcher>
-                <div className={classNames(projectcss.all, sty.freeBox__tz94)}>
+                <PlasmicLink__
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.a,
+                    sty.link__tz94
+                  )}
+                  component={Link}
+                  platform={"nextjs"}
+                >
                   <Icon11Icon
                     className={classNames(projectcss.all, sty.svg___9ICnB)}
                     role={"img"}
@@ -300,7 +312,7 @@ function PlasmicHomepage__RenderFunc(props) {
                   >
                     {"My Account"}
                   </div>
-                </div>
+                </PlasmicLink__>
               </div>
             </header>
             <div className={classNames(projectcss.all, sty.freeBox__nLAeP)}>
@@ -311,66 +323,18 @@ function PlasmicHomepage__RenderFunc(props) {
                 hasGap={true}
                 className={classNames(projectcss.all, sty.categoryStack)}
               >
-                <CategoryBtns
-                  className={classNames(
-                    "__wab_instance",
-                    sty.categoryBtns__yybbB
-                  )}
-                />
-
-                <CategoryBtns
-                  className={classNames(
-                    "__wab_instance",
-                    sty.categoryBtns__eQdnd
-                  )}
-                />
-
-                <CategoryBtns
-                  className={classNames(
-                    "__wab_instance",
-                    sty.categoryBtns__rvuwn
-                  )}
-                />
-
-                <CategoryBtns
-                  className={classNames(
-                    "__wab_instance",
-                    sty.categoryBtns__lcsEc
-                  )}
-                />
-
-                <CategoryBtns
-                  className={classNames(
-                    "__wab_instance",
-                    sty.categoryBtns__rEq8W
-                  )}
-                />
-
-                <CategoryBtns
-                  className={classNames(
-                    "__wab_instance",
-                    sty.categoryBtns__iP4Q6
-                  )}
-                />
-
-                <CategoryBtns
-                  className={classNames(
-                    "__wab_instance",
-                    sty.categoryBtns__imMeF
-                  )}
-                />
-
-                <CategoryBtns
-                  className={classNames(
-                    "__wab_instance",
-                    sty.categoryBtns__h3Ns
-                  )}
-                />
-
                 <Fetcher
                   data-plasmic-name={"dataFetcher"}
                   data-plasmic-override={overrides.dataFetcher}
                   className={classNames("__wab_instance", sty.dataFetcher)}
+                  dataOp={{
+                    sourceId: "bQuZs1RaGGXQ9YtwVrdvLX",
+                    opId: "fa535e4b-76b4-4cca-8dbd-9aea92b7208b",
+                    userArgs: {},
+                    cacheKey: `plasmic.$.XDR5cdeO1LGi.$.fa535e4b-76b4-4cca-8dbd-9aea92b7208b.$.`,
+                    invalidatedKeys: null,
+                    roleId: null
+                  }}
                   queries={{}}
                 >
                   {$queries =>
