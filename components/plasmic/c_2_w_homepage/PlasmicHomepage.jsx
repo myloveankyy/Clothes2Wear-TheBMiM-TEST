@@ -577,9 +577,15 @@ function PlasmicHomepage__RenderFunc(props) {
                   const currentItem = __plasmic_item_0;
                   const currentIndex = __plasmic_idx_0;
                   return (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__xEq08)}
+                    <PlasmicLink__
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.a,
+                        sty.link__xEq08
+                      )}
+                      component={Link}
                       key={currentIndex}
+                      platform={"nextjs"}
                     >
                       <PlasmicImg__
                         alt={""}
@@ -622,10 +628,24 @@ function PlasmicHomepage__RenderFunc(props) {
                             sty.h1
                           )}
                         >
-                          {"Ankyy"}
+                          <React.Fragment>
+                            {(() => {
+                              try {
+                                return currentItem.title;
+                              } catch (e) {
+                                if (
+                                  e instanceof TypeError ||
+                                  e?.plasmicType === "PlasmicUndefinedDataError"
+                                ) {
+                                  return "Ankyy";
+                                }
+                                throw e;
+                              }
+                            })()}
+                          </React.Fragment>
                         </h1>
                       </div>
-                    </div>
+                    </PlasmicLink__>
                   );
                 })
               }

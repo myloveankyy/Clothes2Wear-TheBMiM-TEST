@@ -572,7 +572,6 @@
   object-fit: cover;
 }
 .section__jKUyH {
-  display: flex;
   flex-direction: row;
   position: relative;
   width: 100%;
@@ -580,6 +579,7 @@
   max-width: 100%;
   grid-column-start: 1 !important;
   grid-column-end: -1 !important;
+  display: none;
   padding: 28px 40px 18px;
 }
 .section__jKUyH > :global(.__wab_flex-container) {
@@ -603,7 +603,7 @@
   max-width: 100%;
   object-fit: cover;
 }
-.freeBox__xEq08 {
+.link__xEq08 {
   display: flex;
   flex-direction: row;
   align-items: stretch;
