@@ -22,14 +22,11 @@ import {
   ensureGlobalVariants,
   generateStateOnChangeProp,
   generateStateValueProp,
-  hasVariant,
   useDollarState
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import CategoryBtn from "../../CategoryBtn"; // plasmic-import: KsTMFzra88PP/component
-import Button from "../../Button"; // plasmic-import: AKPym4eRpe9r/component
-import Drawer2 from "../../Drawer2"; // plasmic-import: JXMqttZtFxxW/component
 import { useScreenVariants as useScreenVariantsjnMzM2S33Dx } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JnMzM2_S33Dx/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -38,7 +35,6 @@ import sty from "./PlasmicHomepage.module.css"; // plasmic-import: YXVm4dGfJVV4/
 import CameraSolidSvgIcon from "./icons/PlasmicIcon__CameraSolidSvg"; // plasmic-import: 2DRO3PAh9L7F/icon
 import MagnifyingGlassSolidSvgIcon from "./icons/PlasmicIcon__MagnifyingGlassSolidSvg"; // plasmic-import: 9uZ-rPKtEKrQ/icon
 import Icon11Icon from "./icons/PlasmicIcon__Icon11"; // plasmic-import: xvMWbsHhzlxE/icon
-import BarsSolidSvgIcon from "./icons/PlasmicIcon__BarsSolidSvg"; // plasmic-import: C1Z5uhZlxjTV/icon
 
 createPlasmicElementProxy;
 
@@ -77,12 +73,6 @@ function PlasmicHomepage__RenderFunc(props) {
   const $refs = refsRef.current;
   const stateSpecs = React.useMemo(
     () => [
-      {
-        path: "drawer2.open",
-        type: "private",
-        variableType: "boolean",
-        initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
       {
         path: "searchTextbox.value",
         type: "private",
@@ -419,144 +409,6 @@ function PlasmicHomepage__RenderFunc(props) {
                 </Fetcher>
               </Stack__>
             </section>
-            <div className={classNames(projectcss.all, sty.freeBox__hECm)}>
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                color={
-                  hasVariant(globalVariants, "screen", "mobileOnly")
-                    ? "clear"
-                    : undefined
-                }
-              >
-                <Drawer2
-                  data-plasmic-name={"drawer2"}
-                  data-plasmic-override={overrides.drawer2}
-                  className={classNames("__wab_instance", sty.drawer2)}
-                  onOpenChange={generateStateOnChangeProp($state, [
-                    "drawer2",
-                    "open"
-                  ])}
-                  open={generateStateValueProp($state, ["drawer2", "open"])}
-                  trigger={
-                    <React.Fragment>
-                      <BarsSolidSvgIcon
-                        className={classNames(projectcss.all, sty.svg___1FWi)}
-                        role={"img"}
-                      />
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__trUd2
-                        )}
-                      >
-                        {"Show dialog"}
-                      </div>
-                    </React.Fragment>
-                  }
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__seJdx
-                    )}
-                  >
-                    {"CLOTHES2WEAR"}
-                  </div>
-                </Drawer2>
-              </Button>
-              <PlasmicImg__
-                alt={""}
-                className={classNames(sty.img__j56Mu)}
-                displayHeight={"29px"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"100%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"159px"}
-                loading={"lazy"}
-                src={{
-                  src: "/plasmic/c_2_w_homepage/images/c2WFullPng.png",
-                  fullWidth: 1280,
-                  fullHeight: 250,
-                  aspectRatio: undefined
-                }}
-              />
-
-              <Stack__
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___7XupN)}
-              >
-                <Fetcher
-                  data-plasmic-name={"dataFetcher3"}
-                  data-plasmic-override={overrides.dataFetcher3}
-                  className={classNames("__wab_instance", sty.dataFetcher3)}
-                  dataOp={{
-                    sourceId: "cbwfjoUNWks1Vu8onJKXx8",
-                    opId: "84f60dfa-f162-41fd-9e42-9605189b237d",
-                    userArgs: {},
-                    cacheKey: `plasmic.$.F4R7CCus8aTT.$.84f60dfa-f162-41fd-9e42-9605189b237d.$.`,
-                    invalidatedKeys: null,
-                    roleId: null
-                  }}
-                  queries={{}}
-                >
-                  {$queries =>
-                    (_par =>
-                      !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                      (() => {
-                        try {
-                          return $queries.data.data.response;
-                        } catch (e) {
-                          if (
-                            e instanceof TypeError ||
-                            e?.plasmicType === "PlasmicUndefinedDataError"
-                          ) {
-                            return [];
-                          }
-                          throw e;
-                        }
-                      })()
-                    ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                      const currentItem = __plasmic_item_0;
-                      const currentIndex = __plasmic_idx_0;
-                      return (
-                        <PlasmicImg__
-                          alt={""}
-                          className={classNames(sty.img__rn7GP)}
-                          displayHeight={"20px"}
-                          displayMaxHeight={"none"}
-                          displayMaxWidth={"100%"}
-                          displayMinHeight={"0"}
-                          displayMinWidth={"0"}
-                          displayWidth={"auto"}
-                          key={currentIndex}
-                          loading={"lazy"}
-                          src={(() => {
-                            try {
-                              return currentItem.iconUrl;
-                            } catch (e) {
-                              if (
-                                e instanceof TypeError ||
-                                e?.plasmicType === "PlasmicUndefinedDataError"
-                              ) {
-                                return undefined;
-                              }
-                              throw e;
-                            }
-                          })()}
-                        />
-                      );
-                    })
-                  }
-                </Fetcher>
-              </Stack__>
-            </div>
           </header>
           <Stack__
             as={"section"}
@@ -688,9 +540,6 @@ const PlasmicDescendants = {
     "categoryStack",
     "dataFetcher",
     "categoryBtn",
-    "button",
-    "drawer2",
-    "dataFetcher3",
     "dataFetcher4",
     "h1"
   ],
@@ -704,10 +553,7 @@ const PlasmicDescendants = {
     "dataFetcher2",
     "categoryStack",
     "dataFetcher",
-    "categoryBtn",
-    "button",
-    "drawer2",
-    "dataFetcher3"
+    "categoryBtn"
   ],
 
   main: [
@@ -725,9 +571,6 @@ const PlasmicDescendants = {
   categoryStack: ["categoryStack", "dataFetcher", "categoryBtn"],
   dataFetcher: ["dataFetcher", "categoryBtn"],
   categoryBtn: ["categoryBtn"],
-  button: ["button", "drawer2"],
-  drawer2: ["drawer2"],
-  dataFetcher3: ["dataFetcher3"],
   dataFetcher4: ["dataFetcher4", "h1"],
   h1: ["h1"]
 };
@@ -773,9 +616,6 @@ export const PlasmicHomepage = Object.assign(
     categoryStack: makeNodeComponent("categoryStack"),
     dataFetcher: makeNodeComponent("dataFetcher"),
     categoryBtn: makeNodeComponent("categoryBtn"),
-    button: makeNodeComponent("button"),
-    drawer2: makeNodeComponent("drawer2"),
-    dataFetcher3: makeNodeComponent("dataFetcher3"),
     dataFetcher4: makeNodeComponent("dataFetcher4"),
     h1: makeNodeComponent("h1"),
     // Metadata about props expected for PlasmicHomepage
