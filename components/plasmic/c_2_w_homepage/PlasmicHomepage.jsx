@@ -20,20 +20,15 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts,
   ensureGlobalVariants,
-  generateOnMutateForSpec,
   generateStateOnChangeProp,
-  generateStateOnChangePropForCodeComponents,
   generateStateValueProp,
   hasVariant,
-  initializeCodeComponentStates,
   useDollarState
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import Button from "../../Button"; // plasmic-import: AKPym4eRpe9r/component
 import Drawer2 from "../../Drawer2"; // plasmic-import: JXMqttZtFxxW/component
-import { SliderWrapper } from "@plasmicpkgs/react-slick";
-import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import { useScreenVariants as useScreenVariantsjnMzM2S33Dx } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JnMzM2_S33Dx/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic.module.css"; // plasmic-import: 8ozBW4uAVqTFB3X2H9YHuB/projectcss
@@ -85,14 +80,6 @@ function PlasmicHomepage__RenderFunc(props) {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $ctx }) => false
-      },
-      {
-        path: "sliderCarousel.currentSlide",
-        type: "private",
-        variableType: "number",
-        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
-        refName: "sliderCarousel",
-        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       },
       {
         path: "searchTextbox.value",
@@ -414,11 +401,13 @@ function PlasmicHomepage__RenderFunc(props) {
                           key={currentIndex}
                         >
                           <h1
+                            data-plasmic-name={"h1"}
+                            data-plasmic-override={overrides.h1}
                             className={classNames(
                               projectcss.all,
                               projectcss.h1,
                               projectcss.__wab_text,
-                              sty.h1__sdfD
+                              sty.h1
                             )}
                           >
                             <React.Fragment>
@@ -584,173 +573,6 @@ function PlasmicHomepage__RenderFunc(props) {
               </Stack__>
             </div>
           </section>
-          <section
-            data-plasmic-name={"desktopShowcaseSection"}
-            data-plasmic-override={overrides.desktopShowcaseSection}
-            className={classNames(projectcss.all, sty.desktopShowcaseSection)}
-          >
-            {(() => {
-              const child$Props = {
-                beforeChange: generateStateOnChangePropForCodeComponents(
-                  $state,
-                  "currentSlide",
-                  ["sliderCarousel", "currentSlide"],
-                  SliderWrapper_Helpers
-                ),
-                className: classNames("__wab_instance", sty.sliderCarousel),
-                initialSlide: generateStateValueProp($state, [
-                  "sliderCarousel",
-                  "currentSlide"
-                ]),
-                ref: ref => {
-                  $refs["sliderCarousel"] = ref;
-                },
-                sliderScopeClassName: sty["sliderCarousel__slider"],
-                swipeToSlide: true
-              };
-              initializeCodeComponentStates(
-                $state,
-                [
-                  {
-                    name: "currentSlide",
-                    plasmicStateName: "sliderCarousel.currentSlide"
-                  }
-                ],
-
-                [],
-                SliderWrapper_Helpers ?? {},
-                child$Props
-              );
-              return (
-                <SliderWrapper
-                  data-plasmic-name={"sliderCarousel"}
-                  data-plasmic-override={overrides.sliderCarousel}
-                  {...child$Props}
-                >
-                  <section
-                    data-plasmic-name={"section"}
-                    data-plasmic-override={overrides.section}
-                    className={classNames(projectcss.all, sty.section)}
-                  >
-                    <Stack__
-                      as={"div"}
-                      hasGap={true}
-                      className={classNames(projectcss.all, sty.freeBox__obkTr)}
-                    >
-                      <Fetcher
-                        data-plasmic-name={"dataFetcher4"}
-                        data-plasmic-override={overrides.dataFetcher4}
-                        className={classNames(
-                          "__wab_instance",
-                          sty.dataFetcher4
-                        )}
-                        queries={{}}
-                      >
-                        {$queries =>
-                          (_par =>
-                            !_par ? [] : Array.isArray(_par) ? _par : [_par])(
-                            (() => {
-                              try {
-                                return $queries.data.data.response.showcases;
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return [];
-                                }
-                                throw e;
-                              }
-                            })()
-                          ).map((__plasmic_item_0, __plasmic_idx_0) => {
-                            const currentItem = __plasmic_item_0;
-                            const currentIndex = __plasmic_idx_0;
-                            return (
-                              <div
-                                data-plasmic-name={"showcase"}
-                                data-plasmic-override={overrides.showcase}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.showcase
-                                )}
-                                key={currentIndex}
-                              >
-                                <PlasmicImg__
-                                  alt={""}
-                                  className={classNames(sty.img__n9VLb)}
-                                  displayHeight={"100%"}
-                                  displayMaxHeight={"none"}
-                                  displayMaxWidth={"100%"}
-                                  displayMinHeight={"0"}
-                                  displayMinWidth={"0"}
-                                  displayWidth={"100%"}
-                                  loading={"lazy"}
-                                  src={(() => {
-                                    try {
-                                      return currentItem.imageUrl;
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}
-                                />
-
-                                <div
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.freeBox__stRgZ
-                                  )}
-                                >
-                                  <h1
-                                    className={classNames(
-                                      projectcss.all,
-                                      projectcss.h1,
-                                      projectcss.__wab_text,
-                                      sty.h1__jevCo
-                                    )}
-                                  >
-                                    <React.Fragment>
-                                      {(() => {
-                                        try {
-                                          return currentItem.title;
-                                        } catch (e) {
-                                          if (
-                                            e instanceof TypeError ||
-                                            e?.plasmicType ===
-                                              "PlasmicUndefinedDataError"
-                                          ) {
-                                            return "Ankyy";
-                                          }
-                                          throw e;
-                                        }
-                                      })()}
-                                    </React.Fragment>
-                                  </h1>
-                                </div>
-                              </div>
-                            );
-                          })
-                        }
-                      </Fetcher>
-                    </Stack__>
-                  </section>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__iDgY0)}
-                  />
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__nl5BA)}
-                  />
-                </SliderWrapper>
-              );
-            })()}
-          </section>
         </div>
       </div>
     </React.Fragment>
@@ -769,14 +591,10 @@ const PlasmicDescendants = {
     "categoryStack",
     "dataFetcher",
     "categoryBtn",
+    "h1",
     "button",
     "drawer2",
-    "dataFetcher3",
-    "desktopShowcaseSection",
-    "sliderCarousel",
-    "section",
-    "dataFetcher4",
-    "showcase"
+    "dataFetcher3"
   ],
 
   headerSection: [
@@ -789,6 +607,7 @@ const PlasmicDescendants = {
     "categoryStack",
     "dataFetcher",
     "categoryBtn",
+    "h1",
     "button",
     "drawer2",
     "dataFetcher3"
@@ -806,24 +625,13 @@ const PlasmicDescendants = {
   searchTextbox: ["searchTextbox"],
   buttonSections: ["buttonSections", "dataFetcher2"],
   dataFetcher2: ["dataFetcher2"],
-  categoryStack: ["categoryStack", "dataFetcher", "categoryBtn"],
-  dataFetcher: ["dataFetcher", "categoryBtn"],
-  categoryBtn: ["categoryBtn"],
+  categoryStack: ["categoryStack", "dataFetcher", "categoryBtn", "h1"],
+  dataFetcher: ["dataFetcher", "categoryBtn", "h1"],
+  categoryBtn: ["categoryBtn", "h1"],
+  h1: ["h1"],
   button: ["button", "drawer2"],
   drawer2: ["drawer2"],
-  dataFetcher3: ["dataFetcher3"],
-  desktopShowcaseSection: [
-    "desktopShowcaseSection",
-    "sliderCarousel",
-    "section",
-    "dataFetcher4",
-    "showcase"
-  ],
-
-  sliderCarousel: ["sliderCarousel", "section", "dataFetcher4", "showcase"],
-  section: ["section", "dataFetcher4", "showcase"],
-  dataFetcher4: ["dataFetcher4", "showcase"],
-  showcase: ["showcase"]
+  dataFetcher3: ["dataFetcher3"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -867,14 +675,10 @@ export const PlasmicHomepage = Object.assign(
     categoryStack: makeNodeComponent("categoryStack"),
     dataFetcher: makeNodeComponent("dataFetcher"),
     categoryBtn: makeNodeComponent("categoryBtn"),
+    h1: makeNodeComponent("h1"),
     button: makeNodeComponent("button"),
     drawer2: makeNodeComponent("drawer2"),
     dataFetcher3: makeNodeComponent("dataFetcher3"),
-    desktopShowcaseSection: makeNodeComponent("desktopShowcaseSection"),
-    sliderCarousel: makeNodeComponent("sliderCarousel"),
-    section: makeNodeComponent("section"),
-    dataFetcher4: makeNodeComponent("dataFetcher4"),
-    showcase: makeNodeComponent("showcase"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,
