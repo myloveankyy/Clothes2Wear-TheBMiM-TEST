@@ -15,8 +15,7 @@ import {
   PlasmicLink as PlasmicLink__,
   classNames,
   createPlasmicElementProxy,
-  deriveRenderOpts,
-  useTrigger
+  deriveRenderOpts
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import "@plasmicapp/react-web/lib/plasmic.css";
@@ -59,13 +58,6 @@ function PlasmicCategoryBtn__RenderFunc(props) {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-  const [isCategoryBtnHover, triggerCategoryBtnHoverProps] = useTrigger(
-    "useHover",
-    {}
-  );
-  const triggers = {
-    hover_categoryBtn: isCategoryBtnHover
-  };
   return (
     <PlasmicLink__
       data-plasmic-name={"categoryBtn"}
@@ -84,7 +76,6 @@ function PlasmicCategoryBtn__RenderFunc(props) {
       )}
       component={Link}
       platform={"nextjs"}
-      data-plasmic-trigger-props={[triggerCategoryBtnHoverProps]}
     >
       <div className={classNames(projectcss.all, sty.freeBox__uMa7)}>
         <h1

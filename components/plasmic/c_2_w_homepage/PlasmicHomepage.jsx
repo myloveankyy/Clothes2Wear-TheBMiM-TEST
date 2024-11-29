@@ -20,9 +20,12 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts,
   ensureGlobalVariants,
+  generateOnMutateForSpec,
   generateStateOnChangeProp,
+  generateStateOnChangePropForCodeComponents,
   generateStateValueProp,
   hasVariant,
+  initializeCodeComponentStates,
   useDollarState
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
@@ -30,6 +33,8 @@ import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
 import CategoryBtn from "../../CategoryBtn"; // plasmic-import: KsTMFzra88PP/component
 import Button from "../../Button"; // plasmic-import: AKPym4eRpe9r/component
 import Drawer2 from "../../Drawer2"; // plasmic-import: JXMqttZtFxxW/component
+import { SliderWrapper } from "@plasmicpkgs/react-slick";
+import { sliderHelpers as SliderWrapper_Helpers } from "@plasmicpkgs/react-slick";
 import { useScreenVariants as useScreenVariantsjnMzM2S33Dx } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JnMzM2_S33Dx/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css";
 import plasmic_antd_5_hostless_css from "../antd_5_hostless/plasmic.module.css"; // plasmic-import: ohDidvG9XsCeFumugENU3J/projectcss
@@ -88,6 +93,14 @@ function PlasmicHomepage__RenderFunc(props) {
         type: "private",
         variableType: "text",
         initFunc: ({ $props, $state, $queries, $ctx }) => undefined
+      },
+      {
+        path: "sliderCarousel.currentSlide",
+        type: "private",
+        variableType: "number",
+        initFunc: ({ $props, $state, $queries, $ctx }) => 0,
+        refName: "sliderCarousel",
+        onMutate: generateOnMutateForSpec("currentSlide", SliderWrapper_Helpers)
       }
     ],
 
@@ -539,6 +552,81 @@ function PlasmicHomepage__RenderFunc(props) {
               </Stack__>
             </div>
           </header>
+          <section className={classNames(projectcss.all, sty.section__jblf5)}>
+            <Fetcher
+              data-plasmic-name={"dataFetcher4"}
+              data-plasmic-override={overrides.dataFetcher4}
+              className={classNames("__wab_instance", sty.dataFetcher4)}
+              queries={{}}
+            >
+              {$queries =>
+                (() => {
+                  const child$Props = {
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 0,
+                    beforeChange: generateStateOnChangePropForCodeComponents(
+                      $state,
+                      "currentSlide",
+                      ["sliderCarousel", "currentSlide"],
+                      SliderWrapper_Helpers
+                    ),
+                    centerMode: true,
+                    className: classNames("__wab_instance", sty.sliderCarousel),
+                    cssEase: "linear",
+                    initialSlide: generateStateValueProp($state, [
+                      "sliderCarousel",
+                      "currentSlide"
+                    ]),
+                    ref: ref => {
+                      $refs["sliderCarousel"] = ref;
+                    },
+                    sliderScopeClassName: sty["sliderCarousel__slider"],
+                    speed: 5000
+                  };
+                  initializeCodeComponentStates(
+                    $state,
+                    [
+                      {
+                        name: "currentSlide",
+                        plasmicStateName: "sliderCarousel.currentSlide"
+                      }
+                    ],
+
+                    [],
+                    SliderWrapper_Helpers ?? {},
+                    child$Props
+                  );
+                  return (
+                    <SliderWrapper
+                      data-plasmic-name={"sliderCarousel"}
+                      data-plasmic-override={overrides.sliderCarousel}
+                      {...child$Props}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__ibyw4
+                        )}
+                      >
+                        <PlasmicImg__
+                          alt={""}
+                          className={classNames(sty.img__zUg7H)}
+                          displayHeight={"268px"}
+                          displayMaxHeight={"none"}
+                          displayMaxWidth={"100%"}
+                          displayMinHeight={"0"}
+                          displayMinWidth={"0"}
+                          displayWidth={"196px"}
+                          loading={"lazy"}
+                        />
+                      </div>
+                    </SliderWrapper>
+                  );
+                })()
+              }
+            </Fetcher>
+          </section>
         </div>
       </div>
     </React.Fragment>
@@ -559,7 +647,9 @@ const PlasmicDescendants = {
     "categoryBtn",
     "button",
     "drawer2",
-    "dataFetcher3"
+    "dataFetcher3",
+    "dataFetcher4",
+    "sliderCarousel"
   ],
 
   headerSection: [
@@ -594,7 +684,9 @@ const PlasmicDescendants = {
   categoryBtn: ["categoryBtn"],
   button: ["button", "drawer2"],
   drawer2: ["drawer2"],
-  dataFetcher3: ["dataFetcher3"]
+  dataFetcher3: ["dataFetcher3"],
+  dataFetcher4: ["dataFetcher4", "sliderCarousel"],
+  sliderCarousel: ["sliderCarousel"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -641,6 +733,8 @@ export const PlasmicHomepage = Object.assign(
     button: makeNodeComponent("button"),
     drawer2: makeNodeComponent("drawer2"),
     dataFetcher3: makeNodeComponent("dataFetcher3"),
+    dataFetcher4: makeNodeComponent("dataFetcher4"),
+    sliderCarousel: makeNodeComponent("sliderCarousel"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,
