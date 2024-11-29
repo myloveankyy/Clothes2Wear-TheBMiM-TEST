@@ -125,15 +125,15 @@ function PlasmicHomepage__RenderFunc(props) {
             sty.homePage
           )}
         >
-          <section
+          <header
             data-plasmic-name={"headerSection"}
             data-plasmic-override={overrides.headerSection}
             className={classNames(projectcss.all, sty.headerSection)}
           >
-            <header
-              data-plasmic-name={"header"}
-              data-plasmic-override={overrides.header}
-              className={classNames(projectcss.all, sty.header)}
+            <section
+              data-plasmic-name={"section"}
+              data-plasmic-override={overrides.section}
+              className={classNames(projectcss.all, sty.section)}
             >
               <div className={classNames(projectcss.all, sty.freeBox__pbyBh)}>
                 <CameraSolidSvgIcon
@@ -220,7 +220,7 @@ function PlasmicHomepage__RenderFunc(props) {
                   }}
                 />
               </div>
-              <div
+              <section
                 data-plasmic-name={"buttonSections"}
                 data-plasmic-override={overrides.buttonSections}
                 className={classNames(projectcss.all, sty.buttonSections)}
@@ -347,8 +347,8 @@ function PlasmicHomepage__RenderFunc(props) {
                     {"My Account"}
                   </div>
                 </PlasmicLink__>
-              </div>
-            </header>
+              </section>
+            </section>
             <div className={classNames(projectcss.all, sty.freeBox__nLAeP)}>
               <Stack__
                 as={"div"}
@@ -391,14 +391,17 @@ function PlasmicHomepage__RenderFunc(props) {
                       const currentItem = __plasmic_item_0;
                       const currentIndex = __plasmic_idx_0;
                       return (
-                        <div
+                        <PlasmicLink__
                           data-plasmic-name={"categoryBtn"}
                           data-plasmic-override={overrides.categoryBtn}
                           className={classNames(
                             projectcss.all,
+                            projectcss.a,
                             sty.categoryBtn
                           )}
+                          component={Link}
                           key={currentIndex}
+                          platform={"nextjs"}
                         >
                           <h1
                             data-plasmic-name={"h1"}
@@ -427,7 +430,7 @@ function PlasmicHomepage__RenderFunc(props) {
                               })()}
                             </React.Fragment>
                           </h1>
-                        </div>
+                        </PlasmicLink__>
                       );
                     })
                   }
@@ -572,7 +575,7 @@ function PlasmicHomepage__RenderFunc(props) {
                 </Fetcher>
               </Stack__>
             </div>
-          </section>
+          </header>
         </div>
       </div>
     </React.Fragment>
@@ -583,7 +586,7 @@ const PlasmicDescendants = {
   homePage: [
     "homePage",
     "headerSection",
-    "header",
+    "section",
     "dataFetcher5",
     "searchTextbox",
     "buttonSections",
@@ -599,7 +602,7 @@ const PlasmicDescendants = {
 
   headerSection: [
     "headerSection",
-    "header",
+    "section",
     "dataFetcher5",
     "searchTextbox",
     "buttonSections",
@@ -613,8 +616,8 @@ const PlasmicDescendants = {
     "dataFetcher3"
   ],
 
-  header: [
-    "header",
+  section: [
+    "section",
     "dataFetcher5",
     "searchTextbox",
     "buttonSections",
@@ -667,7 +670,7 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     headerSection: makeNodeComponent("headerSection"),
-    header: makeNodeComponent("header"),
+    section: makeNodeComponent("section"),
     dataFetcher5: makeNodeComponent("dataFetcher5"),
     searchTextbox: makeNodeComponent("searchTextbox"),
     buttonSections: makeNodeComponent("buttonSections"),
