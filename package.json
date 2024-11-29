@@ -12,9 +12,12 @@
     "@plasmicapp/cli": "^0.1.334",
     "@plasmicapp/react-web": "^0.2.355",
     "@plasmicpkgs/radix-ui": "^0.0.64",
+    "@plasmicpkgs/react-slick": "^0.0.228",
     "next": "14.2.18",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "eslint": "^8",
