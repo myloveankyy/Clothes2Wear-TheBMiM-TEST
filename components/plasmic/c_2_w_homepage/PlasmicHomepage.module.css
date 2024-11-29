@@ -306,36 +306,8 @@
   max-width: 100%;
   object-fit: cover;
 }
-.categoryBtn {
-  display: flex;
-  flex-direction: row;
+.categoryBtn:global(.__wab_instance) {
   position: relative;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: auto;
-  max-width: 100%;
-  cursor: pointer;
-  min-width: 0;
-  padding: 0px;
-}
-.h1 {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  font-size: 14px;
-  color: #ef3586;
-  letter-spacing: normal;
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  text-align: left;
-  text-transform: none;
-  line-height: 1;
-  white-space: pre-wrap;
-  user-select: text;
-  text-decoration-line: none;
-  text-overflow: clip;
 }
 .freeBox__hECm {
   flex-direction: row;

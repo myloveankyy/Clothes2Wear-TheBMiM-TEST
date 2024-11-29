@@ -27,6 +27,7 @@ import {
 } from "@plasmicapp/react-web";
 import { useDataEnv } from "@plasmicapp/react-web/lib/host";
 import { Fetcher } from "@plasmicapp/react-web/lib/data-sources";
+import CategoryBtn from "../../CategoryBtn"; // plasmic-import: KsTMFzra88PP/component
 import Button from "../../Button"; // plasmic-import: AKPym4eRpe9r/component
 import Drawer2 from "../../Drawer2"; // plasmic-import: JXMqttZtFxxW/component
 import { useScreenVariants as useScreenVariantsjnMzM2S33Dx } from "./PlasmicGlobalVariant__Screen"; // plasmic-import: JnMzM2_S33Dx/globalVariant
@@ -383,46 +384,16 @@ function PlasmicHomepage__RenderFunc(props) {
                       const currentItem = __plasmic_item_0;
                       const currentIndex = __plasmic_idx_0;
                       return (
-                        <PlasmicLink__
+                        <CategoryBtn
                           data-plasmic-name={"categoryBtn"}
                           data-plasmic-override={overrides.categoryBtn}
                           className={classNames(
-                            projectcss.all,
-                            projectcss.a,
+                            "__wab_instance",
                             sty.categoryBtn
                           )}
-                          component={Link}
+                          currentItem={currentItem}
                           key={currentIndex}
-                          platform={"nextjs"}
-                        >
-                          <h1
-                            data-plasmic-name={"h1"}
-                            data-plasmic-override={overrides.h1}
-                            className={classNames(
-                              projectcss.all,
-                              projectcss.h1,
-                              projectcss.__wab_text,
-                              sty.h1
-                            )}
-                          >
-                            <React.Fragment>
-                              {(() => {
-                                try {
-                                  return currentItem.name;
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return "MEN";
-                                  }
-                                  throw e;
-                                }
-                              })()}
-                            </React.Fragment>
-                          </h1>
-                        </PlasmicLink__>
+                        />
                       );
                     })
                   }
@@ -586,7 +557,6 @@ const PlasmicDescendants = {
     "categoryStack",
     "dataFetcher",
     "categoryBtn",
-    "h1",
     "button",
     "drawer2",
     "dataFetcher3"
@@ -602,7 +572,6 @@ const PlasmicDescendants = {
     "categoryStack",
     "dataFetcher",
     "categoryBtn",
-    "h1",
     "button",
     "drawer2",
     "dataFetcher3"
@@ -620,10 +589,9 @@ const PlasmicDescendants = {
   searchTextbox: ["searchTextbox"],
   buttonSections: ["buttonSections", "dataFetcher2"],
   dataFetcher2: ["dataFetcher2"],
-  categoryStack: ["categoryStack", "dataFetcher", "categoryBtn", "h1"],
-  dataFetcher: ["dataFetcher", "categoryBtn", "h1"],
-  categoryBtn: ["categoryBtn", "h1"],
-  h1: ["h1"],
+  categoryStack: ["categoryStack", "dataFetcher", "categoryBtn"],
+  dataFetcher: ["dataFetcher", "categoryBtn"],
+  categoryBtn: ["categoryBtn"],
   button: ["button", "drawer2"],
   drawer2: ["drawer2"],
   dataFetcher3: ["dataFetcher3"]
@@ -670,7 +638,6 @@ export const PlasmicHomepage = Object.assign(
     categoryStack: makeNodeComponent("categoryStack"),
     dataFetcher: makeNodeComponent("dataFetcher"),
     categoryBtn: makeNodeComponent("categoryBtn"),
-    h1: makeNodeComponent("h1"),
     button: makeNodeComponent("button"),
     drawer2: makeNodeComponent("drawer2"),
     dataFetcher3: makeNodeComponent("dataFetcher3"),
